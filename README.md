@@ -25,7 +25,7 @@ It's CLI(Command Line Interface) app which contains questions about Cricket.
 
 
 ## Project link :
- cricket quiz :https://replit.com/@radheshyam111/mark2?embed=true#index.js
+ cricket quiz :https://replit.com/@radheshyam111/mark2-1?embed=true
 
 ## Thank you !
 
