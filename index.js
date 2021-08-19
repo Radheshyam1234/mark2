@@ -40,6 +40,14 @@ const queList = [
 	b: Brian Lara
 	c: Virendra Sehwag\n`,
     answer: "c"
+  },
+   {
+    question: `
+	In which year India won the 1st ODI world cup?
+	a: 1996
+	b: 2011
+	c: 1983\n`,
+    answer: "c"
   }
 ];
 
