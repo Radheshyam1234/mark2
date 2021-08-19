@@ -4,7 +4,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-console.log("Hey ! Welcome to the quiz ");
+rl.question("Enter Your name",(name)=>{
+console.log(`Hey ${name} ! Welcome to the quiz` );
+
+play();
+})
+
 
 
 const queList = [
@@ -52,6 +57,7 @@ const queList = [
 ];
 
 let questionIndex = 0;
+var score =0
 
 function question() {
   rl.question(queList[questionIndex].question, (answer) => {
@@ -59,6 +65,7 @@ function question() {
 
     if (answer.toLowerCase() == queList[questionIndex].answer.toLowerCase()) {
       console.log("right answer!!!");
+      score+=1;
       questionIndex++;
       play();
     } else {
@@ -80,6 +87,7 @@ function play() {
       if (choice.toLowerCase() !== "e") {
         question();
       } else {
+        console.log(`Your score is ${score} out of 5`)
         console.log("thanks for playing....");
         rl.close();
       }
@@ -93,4 +101,4 @@ function isQuestionListEnded() {
   }
 }
 
-play();
+
