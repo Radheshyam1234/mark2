@@ -1,11 +1,13 @@
 const readline=require("readline");
+const chalk =require('chalk');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
 rl.question("Enter Your name",(name)=>{
-console.log(`Hey ${name} ! Welcome to the quiz` );
+
+console.log(chalk.blue("Hey ")+chalk.green(name)+chalk.blue(" ! Welcome to the quiz.. This is a cricket quiz and you will be awarderd 1 marks for each right answer"));
 
 play();
 })
@@ -61,34 +63,50 @@ var score =0
 
 function question() {
   rl.question(queList[questionIndex].question, (answer) => {
-    console.log(`You answered: ${answer}`);
+    console.log(chalk.blueBright(`You answered: ${answer}`));
 
     if (answer.toLowerCase() == queList[questionIndex].answer.toLowerCase()) {
-      console.log("right answer!!!");
+      console.log(chalk.green("right answer!!!"));
       score+=1;
       questionIndex++;
       play();
     } else {
-      console.log("wrong answer!!!");
-      console.log("try again");
-      question();
+      console.log(chalk.red("wrong answer!!!"));
+      questionIndex++;
+      play();
     }
   });
 }
 
 function play() {
   if (isQuestionListEnded()) {
-    console.log("thanks for playing....");
-    rl.close();
-  } else {
+       if(score>=4)
+       { 
+         console.log(chalk.magenta("Excellent")) 
+          }
+        else
+       { 
+          console.log(chalk.magenta("You didn't scored well"))
+          }
+      console.log(chalk.yellow(`Your score is ${score} out of 5`))
+      console.log(chalk.cyan("Thanks for playing...."));
+      rl.close();
+  } 
+  else 
+  {
     rl.question(" Press e to exit, any other key to continue....  ", (choice) => {
-      console.log(`You selected ${choice}`);
+      console.log(`You selected ${choice}\n--------------------------------------`);
 
       if (choice.toLowerCase() !== "e") {
         question();
-      } else {
-        console.log(`Your score is ${score} out of 5`)
-        console.log("thanks for playing....");
+      }
+       else {
+        if(score>=4)
+       { console.log(chalk.magenta("Excellent"))  }
+        else
+       {  console.log(chalk.magenta("You didn't scored well"))}
+        console.log(chalk.yellow(`Your score is ${score} out of 5`))
+        console.log(chalk.cyan("Thanks for playing...."));
         rl.close();
       }
     });
