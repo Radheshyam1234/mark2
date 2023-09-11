@@ -1,4 +1,4 @@
-# Quiz on cricket
+# Cricket-Quiz CLI
 
 # Getting started
 
